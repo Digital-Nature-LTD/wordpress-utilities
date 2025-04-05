@@ -1,0 +1,16 @@
+{
+    "name": "digital-nature/wordpress-utilities",
+    "description": "General utilities for use in WordPress websites",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "DigitalNature\\WordPressUtilities\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Digital Nature",
+            "email": "hello@digital-nature.co.uk"
+        }
+    ]
+}
