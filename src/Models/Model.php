@@ -2,6 +2,7 @@
 
 namespace DigitalNature\WordPressUtilities\Models;
 
+use DateTime;
 use DigitalNature\WordPressUtilities\Helpers\LogHelper;
 use DigitalNature\WordPressUtilities\Query\Model\ModelAllFromAttributeQuery;
 use DigitalNature\WordPressUtilities\Query\Model\ModelAllFromAttributesQuery;
@@ -394,6 +395,26 @@ abstract class Model
     {
         return $this->post->post_date;
     }
+
+	/**
+	 * @return DateTime|null
+	 */
+	public function get_created_datetime(): ?DateTime
+	{
+		$postDate = $this->get_post_date();
+
+		if (empty($postDate)) {
+			return null;
+		}
+
+		$dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $postDate);
+
+		if (!$dateTime) {
+			return null;
+		}
+
+		return $dateTime;
+	}
 
     /**
      * @return string|null
