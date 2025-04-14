@@ -5,6 +5,9 @@ namespace DigitalNature\WordPressUtilities\Query;
 use DigitalNature\WordPressUtilities\Helpers\LogHelper;
 use DigitalNature\WordPressUtilities\Models\Model;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 abstract class BaseModelQuery
 {
     /**

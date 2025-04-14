@@ -5,6 +5,9 @@ namespace DigitalNature\WordPressUtilities\Traits;
 use DigitalNature\WordPressUtilities\Helpers\LogHelper;
 use Exception;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 trait CacheableModelTrait
 {
     /**

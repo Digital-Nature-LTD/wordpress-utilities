@@ -4,6 +4,9 @@ namespace DigitalNature\WordPressUtilities\Query\ModelNote;
 
 use DigitalNature\WordPressUtilities\Models\ModelNote;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class ModelNoteFromModelQuery extends ModelNoteQuery
 {
     /**

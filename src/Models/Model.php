@@ -14,6 +14,9 @@ use DigitalNature\WordPressUtilities\Traits\CacheableModelTrait;
 use Exception;
 use WP_Post;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 abstract class Model
 {
     use CacheableModelTrait;

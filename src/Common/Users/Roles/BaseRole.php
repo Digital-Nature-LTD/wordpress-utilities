@@ -2,6 +2,9 @@
 
 namespace DigitalNature\WordPressUtilities\Common\Users\Roles;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 abstract class BaseRole
 {
     /**

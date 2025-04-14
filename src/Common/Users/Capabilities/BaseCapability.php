@@ -2,6 +2,9 @@
 
 namespace DigitalNature\WordPressUtilities\Common\Users\Capabilities;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 abstract class BaseCapability
 {
 	/**

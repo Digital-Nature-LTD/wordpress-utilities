@@ -4,6 +4,9 @@ namespace DigitalNature\WordPressUtilities\Config;
 
 use DigitalNature\WordPressUtilities\Patterns\Singleton;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 abstract class PluginConfiguration extends Singleton
 {
 	public abstract static function get_prefix(): string;

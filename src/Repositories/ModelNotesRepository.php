@@ -8,6 +8,9 @@ use DigitalNature\WordPressUtilities\Models\ModelNote;
 use DigitalNature\WordPressUtilities\Query\ModelNote\ModelNoteFromModelQuery;
 use WP_User;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class ModelNotesRepository
 {
     /**

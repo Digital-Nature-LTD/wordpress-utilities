@@ -7,6 +7,9 @@ use DigitalNature\WordPressUtilities\Factories\ModelFactory;
 use DigitalNature\WordPressUtilities\Traits\CacheableModelTrait;
 use WP_User;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class ModelNote extends Model
 {
     use CacheableModelTrait;

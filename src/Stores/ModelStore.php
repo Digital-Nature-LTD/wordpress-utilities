@@ -6,6 +6,9 @@ use DigitalNature\WordPressUtilities\Models\Model;
 use DigitalNature\WordPressUtilities\Patterns\Singleton;
 use Exception;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class ModelStore extends Singleton
 {
     private array $models = [];
