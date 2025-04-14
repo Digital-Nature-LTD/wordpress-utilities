@@ -2,6 +2,7 @@
     "name": "digital-nature/wordpress-utilities",
     "description": "General utilities for use in WordPress websites",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "DigitalNature\\WordPressUtilities\\": "src/"

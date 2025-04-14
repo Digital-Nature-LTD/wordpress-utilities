@@ -3,7 +3,7 @@
         'name' => 'digital-nature/wordpress-utilities',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '5791ab384915740e9c4e8dcfeb5a0025ab0dcf8e',
+        'reference' => '12c864e82cd249920e30b2912e0ab8b885441f69',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'digital-nature/wordpress-utilities' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '5791ab384915740e9c4e8dcfeb5a0025ab0dcf8e',
+            'reference' => '12c864e82cd249920e30b2912e0ab8b885441f69',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
