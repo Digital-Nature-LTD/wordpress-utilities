@@ -146,7 +146,7 @@ When running scripts (see `ConfigHelper`) the `LogHelper` will output to screen 
 
 For other environments it will output to the php error log.
 
-Should you need them, you can retrieve previously logged messages (from this thread): 
+Should you need them, you can retrieve previously logged messages (from this request only): 
 
 ```php
 LogHelper::get_logs(); // all logs
@@ -171,7 +171,7 @@ TemplateHelper::render(
         'arg2' => $anotherArgument
     ],
     trailingslashit('plugin-dir/templates'),
-    $returnAsString
+    $returnAsString // boolean
 );
 ```
 
