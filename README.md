@@ -17,12 +17,12 @@ Roles should be built to contain their associated capabilities.
 // The capability
 class MyNewCapability extends \DigitalNature\WordPressUtilities\Common\Users\Capabilities\BaseCapability {
     /**
-	 * @return string
-	 */
-	public static function get_capability_name(): string
-	{
-	    return 'my_new_capability';
-	}
+     * @return string
+     */
+    public static function get_capability_name(): string
+    {
+        return 'my_new_capability';
+    }
 }
 
 // The role
