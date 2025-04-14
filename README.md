@@ -75,6 +75,10 @@ $canAccess = current_user_can( MyNewCapability::get_capability_name() );
 ```
 
 
+# Config
+## PluginConfiguration
+The `PluginConfiguration` class gives quick access to a plugins name/dir/file/url for use in templates, adding assets etc.
+
 
 # Helpers
 ## Settings
