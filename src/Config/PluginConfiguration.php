@@ -11,17 +11,17 @@ abstract class PluginConfiguration extends Singleton
 	/**
 	 * @return string
 	 */
-	public static function get_plugin_name(): string
+	public static function get_plugin_file(): string
 	{
-		return constant(static::get_prefix() . '_PLUGIN_NAME');
+		return constant(static::get_prefix() . '_PLUGIN_FILE');
 	}
 
 	/**
 	 * @return string
 	 */
-	public static function get_plugin_url(): string
+	public static function get_plugin_base(): string
 	{
-		return constant(static::get_prefix() . '_PLUGIN_URL');
+		return constant(static::get_prefix() . '_PLUGIN_BASE');
 	}
 
 	/**
@@ -36,9 +36,9 @@ abstract class PluginConfiguration extends Singleton
 	/**
 	 * @return string
 	 */
-	public static function get_plugin_file(): string
+	public static function get_plugin_url(): string
 	{
-		return constant(static::get_prefix() . '_PLUGIN_FILE');
+		return constant(static::get_prefix() . '_PLUGIN_URL');
 	}
 
 	/**
