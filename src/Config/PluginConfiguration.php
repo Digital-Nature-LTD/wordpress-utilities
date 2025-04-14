@@ -7,6 +7,8 @@ use DigitalNature\WordPressUtilities\Patterns\Singleton;
 abstract class PluginConfiguration extends Singleton
 {
 	public abstract static function get_prefix(): string;
+	public abstract static function get_plugin_name(): string;
+	public abstract static function get_plugin_friendly_name(): string;
 
 	/**
 	 * @return string
@@ -29,7 +31,6 @@ abstract class PluginConfiguration extends Singleton
 	 */
 	public static function get_plugin_dir(): string
 	{
-
 		return constant(static::get_prefix() . '_PLUGIN_DIR');
 	}
 
@@ -42,10 +43,19 @@ abstract class PluginConfiguration extends Singleton
 	}
 
 	/**
+	 * @return string
+	 */
+	public static function get_plugin_version(): string
+	{
+		return constant(static::get_prefix() . '_VERSION');
+	}
+
+	/**
 	 * @param string $file
+	 * @param string $version
 	 * @return void
 	 */
-	public static function configure(string $file): void
+	public static function configure(string $file, string $version): void
 	{
 		// Plugin Root File
 		define(static::get_prefix() . '_PLUGIN_FILE',	$file);
@@ -58,5 +68,14 @@ abstract class PluginConfiguration extends Singleton
 
 		// Plugin Folder URL
 		define(static::get_prefix() . '_PLUGIN_URL',	plugin_dir_url(static::get_plugin_file()));
+
+		// Plugin name
+		define(static::get_prefix() . '_NAME',			static::get_plugin_name());
+
+		// Plugin visible name
+		define(static::get_prefix() . '_FRIENDLY_NAME', static::get_plugin_friendly_name());
+
+		// Plugin version
+		define(static::get_prefix() . '_VERSION',		$version);
 	}
 }
