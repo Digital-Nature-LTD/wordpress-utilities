@@ -26,7 +26,7 @@ trait CacheableModelTrait
      * @param bool $flushCache
      * @return static|null
      */
-    public static function cache_retrieve_one(string $cacheName, bool $flushCache) // : ?static // this is commented out as it's not supported on the current live PHP version
+    public static function cache_retrieve_one(string $cacheName, bool $flushCache) // : ?static // this is commented out as it's not supported on all PHP versions
     {
         try {
             if ($flushCache) {
@@ -40,7 +40,7 @@ trait CacheableModelTrait
                 }
             }
         } catch (Exception $e) {
-            LogHelper::write("KLIRA_PRESCRIPTION_REPOSITORY: Error retrieving single cache for $cacheName - {$e->getMessage()}");
+            LogHelper::write("Error retrieving single cache for $cacheName - {$e->getMessage()}");
         }
 
         return null;
@@ -66,7 +66,7 @@ trait CacheableModelTrait
                 }
             }
         } catch (Exception $e) {
-            LogHelper::write("KLIRA_PRESCRIPTION_REPOSITORY: Error retrieving multi cache for $cacheName - {$e->getMessage()}");
+            LogHelper::write("Error retrieving multi cache for $cacheName - {$e->getMessage()}");
         }
 
         return null;
@@ -88,14 +88,13 @@ trait CacheableModelTrait
                 $value = get_transient($cacheName);
 
                 if (empty($value)) {
-//                    LogHelper::write("CACHEABLE_MODEL_TRAIT: $cacheName Nothing found in cache");
                     return null;
                 }
 
                 return $value;
             }
         } catch (Exception $e) {
-//            LogHelper::write("KLIRA_PRESCRIPTION_REPOSITORY: Error retrieving value for $cacheName - {$e->getMessage()}");
+			// fail silently
         }
 
         return null;
@@ -111,8 +110,6 @@ trait CacheableModelTrait
      */
     public static function cache_set(string $cacheName, array $records, int $expiry = 3600)
     {
-//        LogHelper::write("CACHEABLE_MODEL_TRAIT: $cacheName Setting cache of " . count($records) . " records for $expiry seconds");
-
         $cacheValue = array_column($records, 'id');
 
         set_transient($cacheName, $cacheValue, $expiry);
@@ -128,8 +125,6 @@ trait CacheableModelTrait
      */
     public static function cache_set_value(string $cacheName, string $cacheValue, int $expiry = 3600)
     {
-//        LogHelper::write("CACHEABLE_MODEL_TRAIT: $cacheName Setting cache value $cacheValue " . ($expiry ? "for $expiry seconds" : 'indefinitely'));
-
         set_transient($cacheName, $cacheValue, $expiry);
     }
 
@@ -142,8 +137,6 @@ trait CacheableModelTrait
     public static function cache_delete(string ...$cacheNames): void
     {
         foreach ($cacheNames as $cacheName) {
-//            LogHelper::write("CACHEABLE_MODEL_TRAIT: $cacheName Deleting cache");
-
             delete_transient($cacheName);
         }
     }
@@ -191,7 +184,7 @@ trait CacheableModelTrait
      * @return static|null
      * @throws Exception
      */
-    private static function get_cached_model(string $cacheName) // : ?static // this is commented out as it's not supported on the current live PHP version
+    private static function get_cached_model(string $cacheName) // : ?static // this is commented out as it's not supported on all PHP versions
     {
         $cached = self::get_cached_models($cacheName);
 

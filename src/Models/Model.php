@@ -9,7 +9,7 @@ use DigitalNature\WordPressUtilities\Query\Model\ModelAllFromAttributesQuery;
 use DigitalNature\WordPressUtilities\Query\Model\ModelAllQuery;
 use DigitalNature\WordPressUtilities\Query\Model\ModelFromAttributeQuery;
 use DigitalNature\WordPressUtilities\Query\Model\ModelFromAttributesQuery;
-use DigitalNature\WordPressUtilities\Repositories\ModelRepository;
+use DigitalNature\WordPressUtilities\Stores\ModelStore;
 use DigitalNature\WordPressUtilities\Traits\CacheableModelTrait;
 use Exception;
 use WP_Post;
@@ -149,7 +149,7 @@ abstract class Model
     public static function from_id(int $modelId): ?self
     {
         try {
-            return ModelRepository::load($modelId, static::class);
+            return ModelStore::load($modelId, static::class);
         } catch (Exception $e) {
             LogHelper::write("Could not load model $modelId of type " . static::class);
         }

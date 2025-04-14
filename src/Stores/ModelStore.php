@@ -1,12 +1,12 @@
 <?php
 
-namespace DigitalNature\WordPressUtilities\Repositories;
+namespace DigitalNature\WordPressUtilities\Stores;
 
 use DigitalNature\WordPressUtilities\Models\Model;
 use DigitalNature\WordPressUtilities\Patterns\Singleton;
 use Exception;
 
-class ModelRepository extends Singleton
+class ModelStore extends Singleton
 {
     private array $models = [];
 
@@ -23,8 +23,8 @@ class ModelRepository extends Singleton
         }
 
         // if we've already loaded this model then return it from cache
-        $modelRepository = self::getInstance();
-        $existingRecord = $modelRepository->retrieve($modelId);
+        $modelStore = self::getInstance();
+        $existingRecord = $modelStore->retrieve($modelId);
 
         if ($existingRecord) {
             // found the record, return it
@@ -45,7 +45,7 @@ class ModelRepository extends Singleton
         $model->set_attributes($thisModel);
 
         // store this so we don't need to load it again later
-        $modelRepository->store($modelId, $model);
+	    $modelStore->store($modelId, $model);
 
         return $model;
     }
