@@ -21,7 +21,7 @@ abstract class ModelNoteQuery extends BaseModelQuery
     {
         $cacheParams = [];
 
-        if (!empty($this->clinic)) {
+        if (!empty($this->model)) {
             $cacheParams[] = $this->model->id;
         }
 
